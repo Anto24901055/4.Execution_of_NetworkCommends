@@ -1,6 +1,7 @@
-## 4.Execution_of_NetworkCommands
-## AIM :
-Use of Network commands in Real Time environment
+# 4.Execution_of_NetworkCommands
+# DEVELOPED BY : ANTO WILLIAMS S
+# REGISTER NO : 212224240012
+## AIM :Use of Network commands in Real Time environment
 ## Software : 
 Command Prompt And Network Protocol Analyzer
 ## Procedure: 
@@ -28,58 +29,44 @@ This commands includes
 <BR>
 • Other IP Commands e.g. show ip route etc.
 <BR>
-
-
-### Developed By: HARINE S
-### Register No: 212224230081
-
-## PROGRAM:
-## PING COMMAND:
-
+## Program:
 ### CLIENT:
 ```
-import socket 
+ import socket 
 from pythonping import ping 
 s=socket.socket() 
 s.bind(('localhost'8000)) 
 s.listen(5) 
 c,addr=s.accept() 
 while True: 
-    hostname=c.recv(1024).decode() 
-    try: 
-        c.send(str(ping(hostname, verbose=False)).encode()) 
-    except KeyError: 
-        c.send("Not Found".encode())
+hostname=c.recv(1024).decode() 
+try: 
+c.send(str(ping(hostname, verbose=False)).encode()) 
+except KeyError: 
+c.send("Not Found".encode())
 ```
+
 ### SERVER:
 ```
 import socket 
 s=socket.socket() 
 s.connect(('localhost',8000)) 
 while True: 
-    ip=input("Enter the website you want to ping ") 
-    s.send(ip.encode()) 
-    print(s.recv(1024).decode())
+ip=input("Enter the website you want to ping ") 
+s.send(ip.encode()) 
+print(s.recv(1024).decode())
 ```
-### TRANCEROUTE COMMAND:
+### TRACEROUTE COMMAND:
 ```
-from scapy.all import* 
-target = ["www.google.com"] 
+ from scapy.all import*     
+target = ["www.google.com"]     
 result, unans = traceroute(target,maxttl=32) 
 print(result,unans)
 ```
 ## Output
-CLIENT
+![image](https://github.com/user-attachments/assets/1e51ccd0-0109-4509-9d08-839242853aa7)
 
-![image](https://github.com/23004513/4.Execution_of_NetworkCommends/assets/138973069/b53ac2f5-24c7-481c-bc98-cf5db18d2510)
-
-SERVER
-
-![image](https://github.com/23004513/4.Execution_of_NetworkCommends/assets/138973069/c09a7fe7-d19b-425f-bcd0-db6570c949a2)
-
-TRANCEROUTE COMMAND
-
-![image](https://github.com/23004513/4.Execution_of_NetworkCommends/assets/138973069/2c9ce9c5-56bf-496f-b39c-86176db284ae)
+![image-2](https://github.com/user-attachments/assets/8ae331c6-ad6d-45db-8d89-5afda5a3346d)
 
 ## Result
-Thus Execution of Network commands Performed 
+Thus Execution of Network commands Performed.
